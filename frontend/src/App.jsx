@@ -5,17 +5,10 @@ import DashboardPage from './pages/DashboardPage';
 import ProcessorPage from './pages/ProcessorPage';
 import HistoryPage from './pages/HistoryPage';
 
-const AppLayout = () => {
+const App = () => {
   return (
-    <div className="min-h-screen noise-bg">
-      {/* Background gradient orbs */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute -top-40 -left-40 w-96 h-96 bg-violet-600/15 rounded-full blur-3xl" />
-        <div className="absolute top-1/3 -right-40 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-1/3 w-72 h-72 bg-violet-800/10 rounded-full blur-3xl" />
-      </div>
-
-      <div className="relative z-10">
+    <BrowserRouter>
+      <div className="min-h-screen noise-bg">
         <Navbar />
 
         <Routes>
@@ -25,17 +18,11 @@ const AppLayout = () => {
           <Route path="/history" element={<HistoryPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
-      </div>
 
-      <Toaster position="top-right" />
-    </div>
+        <Toaster position="top-right" />
+      </div>
+    </BrowserRouter>
   );
 };
-
-const App = () => (
-  <BrowserRouter>
-    <AppLayout />
-  </BrowserRouter>
-);
 
 export default App;
