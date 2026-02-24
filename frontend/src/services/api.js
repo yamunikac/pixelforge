@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: "https://pixelforge-backend-yv2b.onrender.com/api",
   timeout: 60000, // 60s for image processing
 });
 
