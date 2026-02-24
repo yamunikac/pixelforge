@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { protect } = require('../middleware/auth');
+// const { protect } = require('../middleware/auth'); ❌ REMOVE THIS
 const upload = require('../middleware/upload');
 const {
   uploadImage,
@@ -10,8 +10,8 @@ const {
   getStats,
 } = require('../controllers/imageController');
 
-// All routes are protected
-router.use(protect);
+// ❌ REMOVE THIS LINE
+// router.use(protect);
 
 router.post('/upload', upload.single('image'), uploadImage);
 router.post('/process/:id', processImage);
